@@ -1,0 +1,193 @@
+.root {
+    -fx-font-family: Arial;
+    -fx-background-color: #eef2f5;
+}
+
+.login-card {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-border-color: #d5dce3;
+    -fx-border-radius: 8px;
+}
+
+.login-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.login-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #666666;
+}
+
+.text-field,
+.password-field {
+    -fx-pref-height: 38px;
+    -fx-font-size: 14px;
+}
+
+.primary-button {
+    -fx-pref-height: 38px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-color: #2f6fed;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover {
+    -fx-background-color: #2459bd;
+}
+
+.error-label {
+    -fx-text-fill: #c62828;
+    -fx-font-size: 13px;
+    -fx-alignment: center;
+}
+.page-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.page-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #555555;
+}
+.top-bar {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #d5dce3 transparent;
+}
+
+.header-title {
+    -fx-font-size: 19px;
+    -fx-font-weight: bold;
+}
+
+.header-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #666666;
+}
+
+.header-user {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.side-menu {
+    -fx-background-color: #263238;
+}
+
+.menu-heading {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.menu-button {
+    -fx-pref-height: 38px;
+    -fx-alignment: center-left;
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+.menu-button:hover {
+    -fx-background-color: #37474f;
+}
+
+.logout-button {
+    -fx-pref-height: 38px;
+    -fx-background-color: #c62828;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.logout-button:hover {
+    -fx-background-color: #a61f1f;
+}
+.form-panel {
+    -fx-background-color: white;
+    -fx-background-radius: 6px;
+    -fx-border-color: #d5dce3;
+    -fx-border-radius: 6px;
+}
+
+.form-title {
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+}
+
+.secondary-button {
+    -fx-pref-height: 38px;
+    -fx-font-size: 14px;
+    -fx-background-color: #607d8b;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #4f6873;
+}
+
+.danger-button {
+    -fx-pref-height: 38px;
+    -fx-font-size: 14px;
+    -fx-background-color: #c62828;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+.danger-button:hover {
+    -fx-background-color: #a61f1f;
+}
+
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #d5dce3;
+}
+
+.table-view .column-header {
+    -fx-background-color: #e8edf1;
+    -fx-font-weight: bold;
+}
+
+.text-area {
+    -fx-font-size: 14px;
+}
+.stock-quantity-label {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2f6fed;
+}
+.report-total-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2f6fed;
+}
+
+/* ---------- Dashboard summary cards ---------- */
+.stat-card {
+    -fx-background-color: white;
+    -fx-background-radius: 6px;
+    -fx-border-color: #d5dce3;
+    -fx-border-radius: 6px;
+    -fx-padding: 16px 18px 16px 18px;
+}
+
+.stat-title {
+    -fx-font-size: 13px;
+    -fx-text-fill: #666666;
+}
+
+.stat-value {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2f6fed;
+}
+
+.stat-value-warning {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #c62828;
+}

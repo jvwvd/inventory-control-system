@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+        stylesheets="@../css/application.css"
+        xmlns="http://javafx.com/javafx/25"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="controller.MovementHistoryController">
+
+    <top>
+        <VBox spacing="15.0">
+
+            <padding>
+                <Insets
+                        top="25.0"
+                        right="25.0"
+                        bottom="15.0"
+                        left="25.0"/>
+            </padding>
+
+            <children>
+
+                <Label
+                        text="Movement History"
+                        styleClass="page-title"/>
+
+                <Label
+                        text="View all recorded stock-in and stock-out transactions."
+                        styleClass="page-subtitle"/>
+
+                <HBox
+                        alignment="CENTER_LEFT"
+                        spacing="10.0">
+
+                    <children>
+
+                        <ComboBox
+                                fx:id="productFilterComboBox"
+                                prefWidth="300.0"
+                                promptText="Select product to filter"/>
+
+                        <Button
+                                onAction="#handleFilter"
+                                text="Filter"
+                                styleClass="primary-button"/>
+
+                        <Button
+                                onAction="#handleShowAll"
+                                text="Show All"
+                                styleClass="secondary-button"/>
+
+                        <Button
+                                onAction="#handleRefresh"
+                                text="Refresh"/>
+
+                    </children>
+
+                </HBox>
+
+            </children>
+
+        </VBox>
+    </top>
+
+    <center>
+
+        <TableView
+                fx:id="movementTable">
+
+            <BorderPane.margin>
+                <Insets
+                        top="0.0"
+                        right="25.0"
+                        bottom="25.0"
+                        left="25.0"/>
+            </BorderPane.margin>
+
+            <columns>
+
+                <TableColumn
+                        fx:id="idColumn"
+                        prefWidth="55.0"
+                        text="ID"/>
+
+                <TableColumn
+                        fx:id="productIdColumn"
+                        prefWidth="85.0"
+                        text="Product ID"/>
+
+                <TableColumn
+                        fx:id="userIdColumn"
+                        prefWidth="70.0"
+                        text="User ID"/>
+
+                <TableColumn
+                        fx:id="movementTypeColumn"
+                        prefWidth="100.0"
+                        text="Type"/>
+
+                <TableColumn
+                        fx:id="quantityColumn"
+                        prefWidth="80.0"
+                        text="Quantity"/>
+
+                <TableColumn
+                        fx:id="quantityBeforeColumn"
+                        prefWidth="110.0"
+                        text="Qty Before"/>
+
+                <TableColumn
+                        fx:id="quantityAfterColumn"
+                        prefWidth="110.0"
+                        text="Qty After"/>
+
+                <TableColumn
+                        fx:id="movementDateColumn"
+                        prefWidth="180.0"
+                        text="Movement Date"/>
+
+                <TableColumn
+                        fx:id="notesColumn"
+                        prefWidth="220.0"
+                        text="Notes"/>
+
+            </columns>
+
+        </TableView>
+
+    </center>
+
+</BorderPane>

@@ -1,0 +1,14 @@
+{
+    "java.project.sourcePaths": [
+        "src"
+    ],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/sqlite-jdbc-3.53.2.0.jar",
+        "lib/javafx-sdk-25.0.4/lib/javafx.base.jar",
+        "lib/javafx-sdk-25.0.4/lib/javafx.graphics.jar",
+        "lib/javafx-sdk-25.0.4/lib/javafx.controls.jar",
+        "lib/javafx-sdk-25.0.4/lib/javafx.fxml.jar"
+    ],
+    "css.lint.vendorPrefix": "ignore"
+}

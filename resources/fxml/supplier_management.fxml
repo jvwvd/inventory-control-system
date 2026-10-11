@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+        stylesheets="@../css/application.css"
+        xmlns="http://javafx.com/javafx/25"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="controller.SupplierController">
+
+    <top>
+        <VBox spacing="15.0">
+
+            <padding>
+                <Insets
+                        top="25.0"
+                        right="25.0"
+                        bottom="15.0"
+                        left="25.0"/>
+            </padding>
+
+            <children>
+
+                <Label
+                        text="Supplier Management"
+                        styleClass="page-title"/>
+
+                <HBox spacing="10.0">
+
+                    <children>
+
+                        <TextField
+                                fx:id="searchField"
+                                prefWidth="300.0"
+                                promptText="Search supplier name"/>
+
+                        <Button
+                                onAction="#handleSearch"
+                                text="Search"
+                                styleClass="primary-button"/>
+
+                        <Button
+                                onAction="#handleClear"
+                                text="Clear"
+                                styleClass="secondary-button"/>
+
+                    </children>
+
+                </HBox>
+
+            </children>
+
+        </VBox>
+    </top>
+
+    <center>
+
+        <TableView
+                fx:id="supplierTable">
+
+            <BorderPane.margin>
+                <Insets
+                        top="0.0"
+                        right="15.0"
+                        bottom="25.0"
+                        left="25.0"/>
+            </BorderPane.margin>
+
+            <columns>
+
+                <TableColumn
+                        fx:id="idColumn"
+                        prefWidth="55.0"
+                        text="ID"/>
+
+                <TableColumn
+                        fx:id="supplierNameColumn"
+                        prefWidth="145.0"
+                        text="Supplier Name"/>
+
+                <TableColumn
+                        fx:id="contactPersonColumn"
+                        prefWidth="130.0"
+                        text="Contact Person"/>
+
+                <TableColumn
+                        fx:id="phoneColumn"
+                        prefWidth="120.0"
+                        text="Phone"/>
+
+                <TableColumn
+                        fx:id="emailColumn"
+                        prefWidth="170.0"
+                        text="Email"/>
+
+                <TableColumn
+                        fx:id="addressColumn"
+                        prefWidth="190.0"
+                        text="Address"/>
+
+            </columns>
+
+        </TableView>
+
+    </center>
+
+    <right>
+
+        <VBox
+                prefWidth="310.0"
+                spacing="10.0"
+                styleClass="form-panel">
+
+            <BorderPane.margin>
+                <Insets
+                        top="0.0"
+                        right="25.0"
+                        bottom="25.0"
+                        left="10.0"/>
+            </BorderPane.margin>
+
+            <padding>
+                <Insets
+                        top="20.0"
+                        right="20.0"
+                        bottom="20.0"
+                        left="20.0"/>
+            </padding>
+
+            <children>
+
+                <Label
+                        text="Supplier Details"
+                        styleClass="form-title"/>
+
+                <Label text="Supplier Name"/>
+
+                <TextField
+                        fx:id="supplierNameField"
+                        promptText="Enter supplier name"/>
+
+                <Label text="Contact Person"/>
+
+                <TextField
+                        fx:id="contactPersonField"
+                        promptText="Enter contact person"/>
+
+                <Label text="Phone"/>
+
+                <TextField
+                        fx:id="phoneField"
+                        promptText="Enter phone number"/>
+
+                <Label text="Email"/>
+
+                <TextField
+                        fx:id="emailField"
+                        promptText="Enter email address"/>
+
+                <Label text="Address"/>
+
+                <TextArea
+                        fx:id="addressArea"
+                        prefRowCount="3"
+                        promptText="Enter supplier address"
+                        wrapText="true"/>
+
+                <Button
+                        maxWidth="Infinity"
+                        onAction="#handleAdd"
+                        text="Add Supplier"
+                        styleClass="primary-button"/>
+
+                <Button
+                        maxWidth="Infinity"
+                        onAction="#handleUpdate"
+                        text="Update Supplier"
+                        styleClass="secondary-button"/>
+
+                <Button
+                        maxWidth="Infinity"
+                        onAction="#handleDelete"
+                        text="Delete Supplier"
+                        styleClass="danger-button"/>
+
+                <Button
+                        maxWidth="Infinity"
+                        onAction="#handleClear"
+                        text="Clear Form"/>
+
+            </children>
+
+        </VBox>
+
+    </right>
+
+</BorderPane>

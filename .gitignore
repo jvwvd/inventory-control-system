@@ -1,0 +1,18 @@
+# Compiled output (VS Code rebuilds this into bin/)
+bin/
+*.class
+
+# JavaFX SDK is large (~115 MB) and OS-specific: download it separately (see README)
+lib/javafx-sdk-*/
+
+# Exported reports and logs
+Inventory_Report.csv
+*.log
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.idea/
+*.iml

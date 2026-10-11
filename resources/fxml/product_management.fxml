@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+        stylesheets="@../css/application.css"
+        xmlns="http://javafx.com/javafx/25"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="controller.ProductController">
+
+    <top>
+        <VBox spacing="15.0">
+
+            <padding>
+                <Insets
+                        top="20.0"
+                        right="20.0"
+                        bottom="15.0"
+                        left="20.0"/>
+            </padding>
+
+            <children>
+
+                <Label
+                        text="Product Management"
+                        styleClass="page-title"/>
+
+                <HBox spacing="10.0">
+
+                    <children>
+
+                        <TextField
+                                fx:id="searchField"
+                                prefWidth="300.0"
+                                promptText="Search product name or SKU"/>
+
+                        <Button
+                                onAction="#handleSearch"
+                                text="Search"
+                                styleClass="primary-button"/>
+
+                        <Button
+                                onAction="#handleClear"
+                                text="Clear"
+                                styleClass="secondary-button"/>
+
+                    </children>
+
+                </HBox>
+
+            </children>
+
+        </VBox>
+    </top>
+
+    <center>
+
+        <TableView
+                fx:id="productTable">
+
+            <BorderPane.margin>
+                <Insets
+                        top="0.0"
+                        right="10.0"
+                        bottom="20.0"
+                        left="20.0"/>
+            </BorderPane.margin>
+
+            <columns>
+
+                <TableColumn
+                        fx:id="idColumn"
+                        prefWidth="50.0"
+                        text="ID"/>
+
+                <TableColumn
+                        fx:id="skuColumn"
+                        prefWidth="100.0"
+                        text="SKU"/>
+
+                <TableColumn
+                        fx:id="productNameColumn"
+                        prefWidth="160.0"
+                        text="Product Name"/>
+
+                <TableColumn
+                        fx:id="productTypeColumn"
+                        prefWidth="100.0"
+                        text="Type"/>
+
+                <TableColumn
+                        fx:id="categoryColumn"
+                        prefWidth="90.0"
+                        text="Category ID"/>
+
+                <TableColumn
+                        fx:id="supplierColumn"
+                        prefWidth="90.0"
+                        text="Supplier ID"/>
+
+                <TableColumn
+                        fx:id="quantityColumn"
+                        prefWidth="80.0"
+                        text="Quantity"/>
+
+                <TableColumn
+                        fx:id="reorderLevelColumn"
+                        prefWidth="100.0"
+                        text="Reorder Level"/>
+
+                <TableColumn
+                        fx:id="unitPriceColumn"
+                        prefWidth="90.0"
+                        text="Unit Price"/>
+
+                <TableColumn
+                        fx:id="specialInfoColumn"
+                        prefWidth="180.0"
+                        text="Special Information"/>
+
+            </columns>
+
+        </TableView>
+
+    </center>
+
+    <right>
+
+        <ScrollPane
+                fitToWidth="true"
+                prefWidth="330.0">
+
+            <BorderPane.margin>
+                <Insets
+                        top="0.0"
+                        right="20.0"
+                        bottom="20.0"
+                        left="5.0"/>
+            </BorderPane.margin>
+
+            <content>
+
+                <VBox
+                        spacing="8.0"
+                        styleClass="form-panel">
+
+                    <padding>
+                        <Insets
+                                top="18.0"
+                                right="18.0"
+                                bottom="18.0"
+                                left="18.0"/>
+                    </padding>
+
+                    <children>
+
+                        <Label
+                                text="Product Details"
+                                styleClass="form-title"/>
+
+                        <Label text="Product Type"/>
+
+                        <ComboBox
+                                fx:id="productTypeComboBox"
+                                maxWidth="Infinity"
+                                promptText="Select product type"/>
+
+                        <Label text="SKU"/>
+
+                        <TextField
+                                fx:id="skuField"
+                                promptText="Enter product SKU"/>
+
+                        <Label text="Product Name"/>
+
+                        <TextField
+                                fx:id="productNameField"
+                                promptText="Enter product name"/>
+
+                        <Label text="Category"/>
+
+                        <ComboBox
+                                fx:id="categoryComboBox"
+                                maxWidth="Infinity"
+                                promptText="Select category"/>
+
+                        <Label text="Supplier"/>
+
+                        <ComboBox
+                                fx:id="supplierComboBox"
+                                maxWidth="Infinity"
+                                promptText="Select supplier"/>
+
+                        <Label text="Quantity"/>
+
+                        <TextField
+                                fx:id="quantityField"
+                                promptText="Enter quantity"/>
+
+                        <Label text="Reorder Level"/>
+
+                        <TextField
+                                fx:id="reorderLevelField"
+                                promptText="Enter reorder level"/>
+
+                        <Label text="Unit Price"/>
+
+                        <TextField
+                                fx:id="unitPriceField"
+                                promptText="Enter unit price"/>
+
+                        <Label text="Expiry Date (Perishable)"/>
+
+                        <DatePicker
+                                fx:id="expiryDatePicker"
+                                maxWidth="Infinity"
+                                promptText="Select expiry date"/>
+
+                        <Label text="Warranty Months (Electronic)"/>
+
+                        <TextField
+                                fx:id="warrantyMonthsField"
+                                promptText="Enter warranty months"/>
+
+                        <Label text="Description"/>
+
+                        <TextArea
+                                fx:id="descriptionArea"
+                                prefRowCount="3"
+                                promptText="Enter product description"
+                                wrapText="true"/>
+
+                        <Button
+                                maxWidth="Infinity"
+                                onAction="#handleAdd"
+                                text="Add Product"
+                                styleClass="primary-button"/>
+
+                        <Button
+                                maxWidth="Infinity"
+                                onAction="#handleUpdate"
+                                text="Update Product"
+                                styleClass="secondary-button"/>
+
+                        <Button
+                                maxWidth="Infinity"
+                                onAction="#handleDelete"
+                                text="Delete Product"
+                                styleClass="danger-button"/>
+
+                        <Button
+                                maxWidth="Infinity"
+                                onAction="#handleClear"
+                                text="Clear Form"/>
+
+                    </children>
+
+                </VBox>
+
+            </content>
+
+        </ScrollPane>
+
+    </right>
+
+</BorderPane>

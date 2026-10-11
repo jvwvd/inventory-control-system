@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox
+        alignment="TOP_LEFT"
+        spacing="12.0"
+        stylesheets="@../css/application.css"
+        xmlns="http://javafx.com/javafx/25"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="controller.DashboardController">
+
+    <padding>
+        <Insets
+                top="30.0"
+                right="30.0"
+                bottom="30.0"
+                left="30.0"/>
+    </padding>
+
+    <children>
+        <Label
+                text="Dashboard"
+                styleClass="page-title"/>
+
+        <Label
+                text="Welcome to the Inventory Management System."
+                styleClass="page-subtitle"/>
+
+        <Label
+                text="Use the navigation menu to manage inventory records."
+                styleClass="page-subtitle"/>
+
+        <!-- Four summary cards -->
+        <HBox spacing="15.0">
+            <padding>
+                <Insets top="10.0"/>
+            </padding>
+
+            <children>
+
+                <VBox
+                        styleClass="stat-card"
+                        spacing="6.0"
+                        HBox.hgrow="ALWAYS"
+                        maxWidth="Infinity">
+                    <children>
+                        <Label
+                                text="Total Products"
+                                styleClass="stat-title"/>
+                        <Label
+                                fx:id="totalProductsLabel"
+                                text="0"
+                                styleClass="stat-value"/>
+                    </children>
+                </VBox>
+
+                <VBox
+                        styleClass="stat-card"
+                        spacing="6.0"
+                        HBox.hgrow="ALWAYS"
+                        maxWidth="Infinity">
+                    <children>
+                        <Label
+                                text="Total Stock Units"
+                                styleClass="stat-title"/>
+                        <Label
+                                fx:id="totalStockUnitsLabel"
+                                text="0"
+                                styleClass="stat-value"/>
+                    </children>
+                </VBox>
+
+                <VBox
+                        styleClass="stat-card"
+                        spacing="6.0"
+                        HBox.hgrow="ALWAYS"
+                        maxWidth="Infinity">
+                    <children>
+                        <Label
+                                text="Total Inventory Value"
+                                styleClass="stat-title"/>
+                        <Label
+                                fx:id="totalInventoryValueLabel"
+                                text="0.00"
+                                styleClass="stat-value"/>
+                    </children>
+                </VBox>
+
+                <VBox
+                        styleClass="stat-card"
+                        spacing="6.0"
+                        HBox.hgrow="ALWAYS"
+                        maxWidth="Infinity">
+                    <children>
+                        <Label
+                                text="Low Stock Products"
+                                styleClass="stat-title"/>
+                        <Label
+                                fx:id="lowStockCountLabel"
+                                text="0"
+                                styleClass="stat-value-warning"/>
+                    </children>
+                </VBox>
+
+            </children>
+        </HBox>
+
+        <!-- Low-stock alert list -->
+        <Label
+                text="Low Stock Alerts"
+                styleClass="form-title">
+            <VBox.margin>
+                <Insets top="10.0"/>
+            </VBox.margin>
+        </Label>
+
+        <Label
+                fx:id="lowStockMessageLabel"
+                text=""
+                styleClass="page-subtitle"/>
+
+        <TableView
+                fx:id="lowStockTable"
+                prefHeight="260.0"
+                VBox.vgrow="ALWAYS">
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+            <columns>
+
+                <TableColumn
+                        fx:id="lowSkuColumn"
+                        text="SKU"
+                        prefWidth="130.0"/>
+
+                <TableColumn
+                        fx:id="lowNameColumn"
+                        text="Product Name"
+                        prefWidth="280.0"/>
+
+                <TableColumn
+                        fx:id="lowTypeColumn"
+                        text="Type"
+                        prefWidth="120.0"/>
+
+                <TableColumn
+                        fx:id="lowQuantityColumn"
+                        text="Quantity"
+                        prefWidth="100.0"/>
+
+                <TableColumn
+                        fx:id="lowReorderColumn"
+                        text="Reorder Level"
+                        prefWidth="120.0"/>
+
+            </columns>
+        </TableView>
+    </children>
+
+</VBox>

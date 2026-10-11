@@ -1,0 +1,455 @@
+INVENTORY MANAGEMENT SYSTEM
+DATABASE NOTES
+
+============================================================
+1. DATABASE INFORMATION
+============================================================
+
+Database system:
+SQLite
+
+Database file location:
+database/inventory.db
+
+Database connection URL:
+jdbc:sqlite:database/inventory.db
+
+SQLite JDBC driver:
+lib/sqlite-jdbc-3.53.2.0.jar
+
+JDBC driver class:
+org.sqlite.JDBC
+
+Foreign-key enforcement:
+PRAGMA foreign_keys = ON;
+
+The inventory.db file is the actual SQLite database used by
+the Inventory Management System.
+
+The database file is a binary file and must not be edited
+manually using a text editor.
+
+
+============================================================
+2. DATABASE FILES
+============================================================
+
+database/schema.sql
+Creates the complete database structure, including tables,
+primary keys, foreign keys, unique constraints, check
+constraints and default values.
+
+database/sample_data.sql
+Inserts the default users, categories, suppliers, products and
+sample stock-movement records.
+
+database/inventory.db
+The actual SQLite database used by the application.
+
+database/database_notes.txt
+Contains database setup, recreation and login information.
+
+
+============================================================
+3. DATABASE TABLES
+============================================================
+
+The database contains the following five application tables:
+
+1. users
+   Stores application login-user information.
+
+2. categories
+   Stores product-category information.
+
+3. suppliers
+   Stores supplier and contact information.
+
+4. products
+   Stores general, perishable and electronic products.
+
+5. stock_movements
+   Stores all stock-in and stock-out transactions.
+
+SQLite may also internally create the sqlite_sequence table
+to manage AUTOINCREMENT values. This is an internal SQLite
+table and is not one of the five application tables.
+
+
+============================================================
+4. DEFAULT LOGIN CREDENTIALS
+============================================================
+
+User 1:
+
+Username:
+admin
+
+Password:
+admin123
+
+Full name:
+System Administrator
+
+Status:
+Active
+
+
+User 2:
+
+Username:
+staff
+
+Password:
+staff123
+
+Full name:
+Store Staff
+
+Status:
+Active
+
+
+All users have the same application permissions. The users
+table does not contain a role column.
+
+Passwords are not stored as plain text in the database.
+Passwords are processed using the SHA-256 algorithm and saved
+as lowercase hexadecimal hash values.
+
+
+============================================================
+5. SAMPLE CATEGORIES
+============================================================
+
+The sample database contains these categories:
+
+1. Stationery
+2. Food & Beverages
+3. Electronics
+
+
+============================================================
+6. SAMPLE SUPPLIERS
+============================================================
+
+The sample database contains these suppliers:
+
+1. Prime Office Supplies
+2. Fresh Foods Ltd
+3. TechSource Solutions
+
+
+============================================================
+7. SAMPLE PRODUCTS
+============================================================
+
+General product:
+
+SKU:
+GEN-001
+
+Product name:
+A5 Notebook
+
+Product type:
+GENERAL
+
+
+Perishable product:
+
+SKU:
+PER-001
+
+Product name:
+Fresh Milk 1L
+
+Product type:
+PERISHABLE
+
+
+Electronic product:
+
+SKU:
+ELE-001
+
+Product name:
+Wireless Mouse
+
+Product type:
+ELECTRONIC
+
+
+============================================================
+8. SAMPLE STOCK MOVEMENTS
+============================================================
+
+GEN-001:
+
+Stock in:
+0 + 50 = 50
+
+Stock out:
+50 - 5 = 45
+
+Final quantity:
+45
+
+
+PER-001:
+
+Stock in:
+0 + 30 = 30
+
+Stock out:
+30 - 4 = 26
+
+Final quantity:
+26
+
+
+ELE-001:
+
+Stock in:
+0 + 20 = 20
+
+Stock out:
+20 - 2 = 18
+
+Final quantity:
+18
+
+
+============================================================
+9. HOW TO RECREATE THE DATABASE
+============================================================
+
+Follow these steps to recreate the database:
+
+1. Close the Inventory Management System application.
+
+2. Make sure no program currently has inventory.db open.
+
+3. Create a backup of inventory.db if the existing data must
+   be preserved.
+
+4. Delete only this file:
+
+   database/inventory.db
+
+5. Do not delete these files:
+
+   database/schema.sql
+   database/sample_data.sql
+   database/database_notes.txt
+
+6. Execute database/schema.sql first.
+
+7. After the five tables have been created successfully,
+   execute database/sample_data.sql.
+
+8. Confirm that a new inventory.db file has been created in
+   the database folder.
+
+9. Verify that the database contains:
+
+   users: 2
+   categories: 3
+   suppliers: 3
+   products: 3
+   stock_movements: 6
+
+10. Verify that no foreign-key violations exist.
+
+
+============================================================
+10. HOW TO EXECUTE schema.sql USING JAVA AND JDBC
+============================================================
+
+The schema was tested using the SQLite JDBC driver and Java.
+
+Required files:
+
+lib/sqlite-jdbc-3.53.2.0.jar
+database/schema.sql
+src/App.java
+
+Procedure:
+
+1. Open the InventoryManagementSystem project in VS Code.
+
+2. Confirm that sqlite-jdbc-3.53.2.0.jar exists inside the
+   lib folder.
+
+3. Confirm that the database connection URL is:
+
+   jdbc:sqlite:database/inventory.db
+
+4. Read the schema file using:
+
+   Files.readString(Path.of("database/schema.sql"))
+
+5. Open a JDBC connection using DriverManager.
+
+6. Execute:
+
+   PRAGMA foreign_keys = ON;
+
+7. Execute each SQL statement from schema.sql.
+
+8. Run App.java.
+
+9. Confirm that the terminal displays:
+
+   Database schema created successfully.
+
+10. Confirm that these five tables are displayed:
+
+    categories
+    products
+    stock_movements
+    suppliers
+    users
+
+
+============================================================
+11. HOW TO LOAD sample_data.sql USING JAVA AND JDBC
+============================================================
+
+Procedure:
+
+1. Confirm that schema.sql has already been executed.
+
+2. Confirm that all five required tables exist.
+
+3. Read the sample-data file using:
+
+   Files.readString(Path.of("database/sample_data.sql"))
+
+4. Open a JDBC connection using:
+
+   jdbc:sqlite:database/inventory.db
+
+5. Execute:
+
+   PRAGMA foreign_keys = ON;
+
+6. Execute each SQL statement from sample_data.sql.
+
+7. Run App.java.
+
+8. Confirm that the terminal displays:
+
+   Sample data loaded successfully.
+
+9. Confirm these record counts:
+
+   users: 2
+   categories: 3
+   suppliers: 3
+   products: 3
+   stock_movements: 6
+
+10. Confirm that the terminal displays:
+
+    No foreign-key violations found.
+
+
+============================================================
+12. OPTIONAL SQLITE COMMAND-LINE METHOD
+============================================================
+
+If the SQLite command-line program is installed, the schema
+can be executed from the project root using:
+
+sqlite3 database/inventory.db < database/schema.sql
+
+The sample data can then be loaded using:
+
+sqlite3 database/inventory.db < database/sample_data.sql
+
+The schema must always be executed before the sample data.
+
+
+============================================================
+13. IMPORTANT DATABASE RULES
+============================================================
+
+1. Foreign-key enforcement must be enabled for every SQLite
+   connection.
+
+2. The inventory.db file must not be edited manually using
+   VS Code or another text editor.
+
+3. schema.sql must be executed before sample_data.sql.
+
+4. Product quantities cannot be negative.
+
+5. Reorder levels cannot be negative.
+
+6. Product unit prices must be greater than zero.
+
+7. A stock-movement quantity must be greater than zero.
+
+8. Stock-out quantity cannot exceed available stock.
+
+9. Product types must use one of these exact values:
+
+   GENERAL
+   PERISHABLE
+   ELECTRONIC
+
+10. Stock-movement types must use one of these exact values:
+
+    IN
+    OUT
+
+11. A perishable product must have an expiry date.
+
+12. An electronic product must have valid warranty months.
+
+13. Category, supplier, product and user records referenced
+    by other records must not be deleted in a way that breaks
+    foreign-key relationships.
+
+
+============================================================
+14. DATABASE TEST STATUS
+============================================================
+
+SQLite JDBC driver:
+Tested successfully
+
+Database connection:
+Tested successfully
+
+Database schema:
+Created successfully
+
+Required application tables:
+5 tables verified
+
+Sample users:
+2 users verified
+
+Sample categories:
+3 categories verified
+
+Sample suppliers:
+3 suppliers verified
+
+Sample products:
+3 products verified
+
+Sample stock movements:
+6 movements verified
+
+Foreign-key verification:
+No violations found
+
+Duplicate sample-data protection:
+Implemented using INSERT OR IGNORE and WHERE NOT EXISTS
+conditions.
+
+Database setup status:
+Completed successfully
